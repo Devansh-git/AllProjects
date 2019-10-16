@@ -6,27 +6,40 @@ public class PacManMove : MonoBehaviour
 {
 
     public float speed = 10;
+    private Vector2 direction;
+    Rigidbody2D rbody;
+
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
+        rbody = GetComponent<Rigidbody2D>();
         
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float h, v, f;
+        if (Input.GetAxis("Horizontal") < -0.2)
+        {
+            direction = Vector2.left;
+        }
+        if (Input.GetAxis("Horizontal") > 0.2)
+        {
+            direction = Vector2.right;
+        }
+        if (Input.GetAxis("Vertical") < -0.2)
+        {
+            direction = Vector2.down;
+        }
+        if (Input.GetAxis("Vertical") > 0.2)
+        {
+            direction = Vector2.up;
+        }
 
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
-
-        //Debug.Log("Horizontal : "+ h + "Vertical : " + v);
-
-
-
-
-        Rigidbody2D rBody = GetComponent<Rigidbody2D>();
-        rBody.velocity = new Vector2(h * speed, v * speed);
-
+        rbody.velocity = direction * speed;
+        transform.right = direction;
     }
 }
