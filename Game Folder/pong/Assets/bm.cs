@@ -11,6 +11,7 @@ public class bm : MonoBehaviour
     Rigidbody2D ball;
     Collision2D hit;
     public Text scoreboard;
+    public Text win;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,25 @@ public class bm : MonoBehaviour
         string str1 = p1.ToString();
         string str2 = p2.ToString();
         scoreboard.text = str1 + "   -   " + str2;
+
+        if(p1==5||p2==5)
+        {
+            ball.position = new Vector2(0f, 0f);
+            ball.velocity = new Vector2(0f,0f);
+
+            if(p1==5)
+            {
+                win.text = "Player 1 Wins";
+
+            }
+
+            if(p2==5)
+            {
+                win.text = "Player 2 Wins";
+            }
+
+        }
+
 
     }
 
