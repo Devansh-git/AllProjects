@@ -55,6 +55,7 @@ public class bm : MonoBehaviour
         if(p1==5||p2==5)
         {
             ball.position = new Vector2(0f, 0f);
+            
             ball.velocity = new Vector2(0f,0f);
 
             if(p1==5)
