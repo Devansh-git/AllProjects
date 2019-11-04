@@ -19,8 +19,7 @@ public class Alien : MonoBehaviour
     // Base firing wait time
     public float baseFireWaitTime = 6.0f;
 
-    public float MoveRate = 2.0f;
-    private float counter = 0.0f;
+    
 
     private Rigidbody2D rbody;
 
@@ -30,18 +29,21 @@ public class Alien : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         rbody = GetComponent<Rigidbody2D>();
 
-        rbody.velocity = new Vector2(1 * speed, 0);
+        
+        rbody.velocity = new Vector2(1, 0) * speed;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        }
 
-
-    }
+    
 
     void Turn(int direction)
     {
